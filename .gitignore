@@ -1,0 +1,16 @@
+/bootcamps-backend/vendor
+/bootcamps-backend/node_modules
+/bootcamps-backend/public/build
+/bootcamps-backend/public/hot
+/bootcamps-backend/public/storage
+/bootcamps-backend/storage/*.key
+/bootcamps-backend/vendor
+/bootcamps-backend/.env
+/bootcamps-backend/.env.backup
+/bootcamps-backend/.phpunit.result.cache
+/bootcamps-backend/Homestead.json
+/bootcamps-backend/Homestead.yaml
+/bootcamps-backend/npm-debug.log
+/bootcamps-backend/yarn-error.log
+/bootcamps-backend/.idea
+/bootcamps-backend/.vscode
