@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('new_user' , function(){
+    $u = new User();
+    $u->name="shaman";
+    $u->email="cbo@misena.edu.co";
+    $u->password = Hash::make("123456");
+    $u->save();
+    echo $u->id;
 });
