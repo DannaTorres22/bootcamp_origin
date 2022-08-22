@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bootcamp;
+use Exception;
+use PhpParser\Node\Stmt\TryCatch;
+use App\Http\Requests\StoreBootcampRequest;
+use App\Http\Resources\BootcampCollection;
 
 class BootcampController extends Controller
 {
@@ -14,8 +18,15 @@ class BootcampController extends Controller
      */
     public function index()
     {
-        $bootcamps = Bootcamp::all();
-        return response()->json(["message" => "success" , "data" => $bootcamps ] , 200);
+        try{
+            $bootcamps = Bootcamp::all();
+            return response()->json(["message" => "success" , "data" => $bootcamps ] , 200);
+        }
+        catch(Exception $e){
+            
+            return response()->json(["message" => $e->getMessage()  ] , 401);
+        }
+        
     }
 
     /**
@@ -24,8 +35,10 @@ class BootcampController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBootcampRequest $request)
     {
+        //$validated = $request->validated();
+
         $b = Bootcamp::create([
             "name" => "PHP Laravel Expert",
             "website" => "http://elshaman.org",
@@ -36,7 +49,7 @@ class BootcampController extends Controller
             "average_cost" =>  15000,
             "user_id" =>  1 
         ]);
-        return response()->json( [ "message" => 'sucess' ,  $b ] , 201);
+        return response()->json( [ "message" => 'sucess' ,  "data" => $b ] , 201);
     }
 
     /**
