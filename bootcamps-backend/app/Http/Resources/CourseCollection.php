@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class BootcampCollection extends ResourceCollection
+class CourseCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -14,11 +14,6 @@ class BootcampCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-        return [
-            'success' => "true",
-            'data' => $this->collection
-            
-        ];
+        return parent::toArray($request);
     }
 }
