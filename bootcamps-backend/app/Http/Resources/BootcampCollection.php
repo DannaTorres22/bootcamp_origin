@@ -14,11 +14,6 @@ class BootcampCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-        return [
-            'success' => "true",
-            'data' => $this->collection
-            
-        ];
+       return $this->collection;
     }
 }
