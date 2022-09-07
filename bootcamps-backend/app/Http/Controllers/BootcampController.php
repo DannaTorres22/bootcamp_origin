@@ -115,7 +115,7 @@ class BootcampController extends BaseController
             return $this->sendError("bootcamp with id:$id not found", 400);
         }
         //Actualizarlo con delete
-        $b->delete($request->all());
+        $b->delete();
         return $this->sendResponse(new BootcampResource($b)); 
     }
 }

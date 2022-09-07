@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BootcampController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,9 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
+Route::post('courses/{idbootcamp}/create' , [ 
+    CourseController::class ,
+      "store"
+]);
 Route::apiResource('bootcamps' , BootcampController::class );
+Route::apiResource('courses', CourseController::class);

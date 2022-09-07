@@ -14,6 +14,14 @@ class CourseResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+       
+        return[
+            'title'=> $this->description,
+            'weeks'=> $this->weeks,
+            'minimum_skill'=> $this->minimum_skill,
+            
+      ];
+
+
     }
 }
